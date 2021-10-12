@@ -9,6 +9,7 @@
         android:id="@+id/newsListFragment"
         android:name="com.example.fabhotels.ui.NewsDashboardFragment"
         android:label="fragment_news_item"
+        app:popUpToInclusive="true"
         tools:layout="@layout/fragment_news_dashboard" >
         <action
             android:id="@+id/action_newsListFragment_to_articleDetailFragment"

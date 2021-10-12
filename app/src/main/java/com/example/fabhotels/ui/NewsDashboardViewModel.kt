@@ -10,13 +10,17 @@ import com.example.fabhotels.repository.Repository
 import kotlinx.coroutines.launch
 
 class NewsDashboardViewModel : ViewModel() {
-    private var _articleList = MutableLiveData<NewsArticle>()
     var mArticles: LiveData<NewsArticle?>? = null
-    private val mutableSelectedArticle = MutableLiveData<Article>()
-    val selectedItem: LiveData<Article> = mutableSelectedArticle
+    private var mutableSelectedArticle = MutableLiveData<Article>()
+    var selectedItem: LiveData<Article> = mutableSelectedArticle
 
     fun setSelectArticle(article: Article) {
         mutableSelectedArticle.value = article
+    }
+
+    fun getSelectedArticle(): LiveData<Article> {
+        selectedItem = mutableSelectedArticle
+        return selectedItem
     }
 
     init {

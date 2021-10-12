@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.fabhotels.R
 import com.example.fabhotels.data.model.Article
@@ -18,7 +18,7 @@ import com.example.fabhotels.utils.ArticleItemClickListener
 
 class NewsDashboardFragment : Fragment(), ArticleItemClickListener {
 
-    private lateinit var viewModel: NewsDashboardViewModel
+    private val viewModel: NewsDashboardViewModel by activityViewModels()
     private lateinit var binding: NewsDashboardFragmentBinding
     private lateinit var adapter: NewsItemRecyclerViewAdapter
     private lateinit var itemClickListener: ArticleItemClickListener
@@ -42,16 +42,13 @@ class NewsDashboardFragment : Fragment(), ArticleItemClickListener {
     ): View {
         binding = NewsDashboardFragmentBinding.inflate(inflater, container, false)
         itemClickListener = this
-        adapter =
-            activity?.let {
-                NewsItemRecyclerViewAdapter(
-                    it.baseContext,
-                    mutableListOf(),
-                    itemClickListener
-                )
-            }!!
-        viewModel = ViewModelProvider(this)
-            .get(NewsDashboardViewModel::class.java)
+        adapter = activity?.let {
+            NewsItemRecyclerViewAdapter(
+                it.baseContext,
+                mutableListOf(),
+                itemClickListener
+            )
+        }!!
         sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
         binding.list.adapter = adapter
         viewModel.mArticles?.observe(viewLifecycleOwner, {

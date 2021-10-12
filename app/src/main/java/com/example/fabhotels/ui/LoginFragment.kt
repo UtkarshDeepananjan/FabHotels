@@ -53,7 +53,7 @@ class LoginFragment : Fragment() {
                     requireActivity().finish()
                 }
             }
-        requireActivity().onBackPressedDispatcher.addCallback(this, callback);
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
 
     override fun onCreateView(

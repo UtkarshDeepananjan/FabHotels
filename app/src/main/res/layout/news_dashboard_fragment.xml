@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:name="com.example.fabhotels.NewsDashboardFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.NewsDashboardFragment">
+
+    <ImageView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/logout_button"
+        android:src="@drawable/ic_logout"
+        app:layout_constraintBottom_toBottomOf="@+id/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/app_name"
+        tools:ignore="RedundantDescriptionCheck" />
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+        android:textColor="@color/design_default_color_primary"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_name">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:shimmer_clip_to_children="true"
+            app:shimmer_shape="linear">
+
+            <include layout="@layout/shimmer_layout" />
+
+            <include layout="@layout/shimmer_layout" />
+
+            <include layout="@layout/shimmer_layout" />
+
+            <include layout="@layout/shimmer_layout" />
+
+            <include layout="@layout/shimmer_layout" />
+
+            <include layout="@layout/shimmer_layout" />
+
+            <include layout="@layout/shimmer_layout" />
+
+            <include layout="@layout/shimmer_layout" />
+
+            <include layout="@layout/shimmer_layout" />
+
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_name"
+        tools:listitem="@layout/fragment_news_list" />
+</androidx.constraintlayout.widget.ConstraintLayout>

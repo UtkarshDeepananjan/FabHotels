@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/newsListFragment"
+        android:name="com.example.fabhotels.ui.NewsDashboardFragment"
+        android:label="fragment_news_item"
+        tools:layout="@layout/fragment_news_dashboard" >
+        <action
+            android:id="@+id/action_newsListFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleDetailFragment"
+        android:name="com.example.fabhotels.ui.ArticleDetailFragment"
+        android:label="fragment_article_detail"
+        tools:layout="@layout/fragment_article_detail" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.fabhotels.ui.LoginFragment"
+        android:label="fragment_login"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_newsListFragment"
+            app:destination="@id/newsListFragment" />
+    </fragment>
+</navigation>
